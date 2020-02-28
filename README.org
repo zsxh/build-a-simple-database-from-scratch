@@ -43,3 +43,9 @@
   The *pager* receives commands to read or write pages of data. It is responsible for reading/writing at appropriate offsets in the database file. It also keeps a cache of recently-accessed pages in memory, and determines when those pages need to be written back to disk.
 
   The *os interface* is the layer that differs depending on which operating system sqlite was compiled for. In this tutorial, I’m not going to support multiple platforms.
+
+  SQL compiler parses a string and output an internal representation called bytecode.\\
+  This bytecode is passed to the virtual machine, which executes it.\\
+  Breaking things into two steps like this has a couple advantages: \\
+  - Reduces the complexity of each part (e.g. virtual machine does not worry about syntax errors)
+  - Allows compiling common queries once and caching the bytecode for improved performance
