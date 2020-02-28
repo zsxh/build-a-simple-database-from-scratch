@@ -14,6 +14,6 @@
 
   https://cstack.github.io/db_tutorial/
 
-  [[static/arch2.gif][sqlite architecture]]
+  [[static/arch2.gif]]
 
   sqlite architecture (https://www.sqlite.org/arch.html)
