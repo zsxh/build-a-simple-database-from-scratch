@@ -3,7 +3,8 @@
 *Building a clone of sqlite from scratch in order to understand how does a database work.*
 
 * Read
-  https://cstack.github.io/db_tutorial/ \\
+  https://cstack.github.io/db_tutorial/
+
   How Does a Database Work? \\
   - What format is data saved in? (in memory and on disk)
   - When does it move from memory to disk?
@@ -13,4 +14,5 @@
   - When and how does a full table scan happen?
   - What format is a prepared statement saved in?
   [[static/arch2.gif]]
+
   [[https://www.sqlite.org/arch.html][sqlite architecture]]
