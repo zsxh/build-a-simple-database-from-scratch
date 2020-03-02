@@ -1,0 +1,6 @@
+clang
+%c -std=c11
+%cpp -std=c++2a
+%h %hpp --include=Global.h
+-I/usr/lib/clang/9.0.1/include
+-DMACRO

@@ -1,0 +1,3 @@
+# check it out
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+BasedOnStyle: Google
