@@ -49,3 +49,30 @@
   Breaking things into two steps like this has a couple advantages: \\
   - Reduces the complexity of each part (e.g. virtual machine does not worry about syntax errors)
   - Allows compiling common queries once and caching the bytecode for improved performance
+** Tests
+*** Install Ruby
+*** Install bunlder
+    #+begin_src shell
+      gem install bunlder
+    #+end_src
+*** Install rspec
+    Specify dependencies in a Gemfile in project's root.
+    #+begin_example
+      source 'http://rubygems.org'
+      gem 'rspec'
+    #+end_example
+    #+begin_src shell
+      bundle install --path vendor/bundle
+    #+end_src
+*** Run tests
+    tests file "spec/main_spec.rb"
+    #+begin_src shell
+      bundle exec rspec
+    #+end_src
+
+* Issues
+  Part 4\\
+  if you failed "prints error message when table is full", comment "free_table(table);" in =do_meta_command= method, uncomment it until fixing all bugs in the end.
+
+* Links
+  - [[https://stackoverflow.com/questions/2430303/disadvantages-of-scanf][disadvantages-of-scanf]]
