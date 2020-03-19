@@ -49,6 +49,43 @@
   Breaking things into two steps like this has a couple advantages: \\
   - Reduces the complexity of each part (e.g. virtual machine does not worry about syntax errors)
   - Allows compiling common queries once and caching the bytecode for improved performance
+** B-Tree Introdution
+   The B-Tree is the data structure SQLite uses to represent both tables and indexes.
+*** Why is a tree a good data structure for a database?
+    - Searching for a particular value is fast (logarithmic time)
+    - Inserting / deleting a value you’ve already found is fast (constant-ish time to rebalance)
+    - Traversing a range of values is fast (unlike a hash map)
+*** B-Tree / B+ Tree
+    A B-Tree is different from a binary tree (the “B” probably stands for the inventor’s name, but could also stand for “balanced”). \\
+    Each node can have up to m children, where m is called the tree’s “order”. To keep the tree mostly balanced, we also say nodes have to have at least m/2 children (rounded up). \\
+    Exception:
+    - Leaf nodes have 0 children
+    - The root node can have fewer than m children but must have at least 2
+    - If the root node is a leaf node (the only node), it still has 0 children
+
+    SQLite uses B-Tree to store indexes. To store tables, SQLites uses a variation called B+ Tree. \\
+
+    |                               | B-tree         | B+ tree             |
+    |-------------------------------+----------------+---------------------|
+    | Pronounced                    | “Bee Tree”     | “Bee Plus Tree”     |
+    | Used to store                 | Indexes        | Tables              |
+    | Internal nodes store keys     | Yes            | Yes                 |
+    | Internal nodes store values   | Yes            | No                  |
+    | Number of children per node   | Less           | More                |
+    | Internal nodes vs. leaf nodes | Same structure | Different structure |
+
+    B+ Tree\\
+
+    | For an order-m tree… | Internal Node                 | Leaf Node           |
+    |----------------------+-------------------------------+---------------------|
+    | Stores               | keys and pointers to children | keys and values     |
+    | Number of keys       | up to m-1                     | as many as will fit |
+    | Number of pointers   | number of keys + 1            | none                |
+    | Number of values     | none                          | number of keys      |
+    | Key purpose          | used for routing              | paired with value   |
+    | Stores values?       | No                            | Yes                 |
+
+    https://cstack.github.io/db_tutorial/parts/part7.html
 ** Tests
 *** Install Ruby
 *** Install bunlder
